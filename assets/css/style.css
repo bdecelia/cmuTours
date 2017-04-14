@@ -10,8 +10,8 @@ body {
     z-index: 1;
     top: 50px;
     left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
     overflow-y: hidden;
     transition: 0.5s;
     color: white;
@@ -36,7 +36,8 @@ body {
     font-weight: 100;
 }
 
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover,
+.overlay a:focus {
     color: #f1f1f1;
 }
 
@@ -47,6 +48,7 @@ body {
     font-size: 60px;
 }
 
+<<<<<<< HEAD
 #nav-icon {
   width: 20px;
   height: 15px;
@@ -173,3 +175,38 @@ main{
 
 
 
+=======
+#homepage-logo-row {
+    padding-top: 50%;
+}
+
+#homepage-logo {
+    width: 100%;
+}
+
+#homepage-button-row {
+    padding-top: 15%;
+}
+
+#homepage-button {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 300%;
+    color: black;
+    background-color: darkgray;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {
+        overflow-y: auto;
+    }
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+>>>>>>> 9d12e5866c9bb2f2befb511926708a2f328eb958
