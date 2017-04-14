@@ -59,6 +59,10 @@ body {
 
 #homepage-button {
     width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 300%;
+    color: black;
+    background-color: darkgray;
 }
 
 @media screen and (max-height: 450px) {
