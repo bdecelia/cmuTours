@@ -1,9 +1,11 @@
+var nav = document.getElementById("myNav");
+
 function openNav() {
-    document.getElementById("myNav").style.height = "100%";
+    nav.style.height = "100%";
 }
 
 function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
+    nav.style.height = "0%";
 }
 
 $(document).ready(function(){
@@ -11,3 +13,11 @@ $(document).ready(function(){
 		$(this).toggleClass('open');
 	});
 });
+
+function toggleNav() {
+	if (nav.style.height == "100%"){
+		closeNav();
+	} else {
+		openNav();
+	}
+}
