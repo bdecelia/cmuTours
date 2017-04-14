@@ -49,80 +49,81 @@ body {
 }
 
 #nav-icon {
-  width: 20px;
-  height: 15px;
-  position: fixed;
-  top: 20px;
-  right: 17px;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  cursor: pointer;
+    width: 20px;
+    height: 15px;
+    position: fixed;
+    top: 20px;
+    right: 17px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
 }
 
-#nav-icon span{
-  display: block;
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #313945;
-  border-radius: 2px;
-  opacity: 1;
-  left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
+#nav-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #313945;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
 }
 
 #nav-icon span:nth-child(1) {
-  top: 0px;
+    top: 0px;
 }
 
-#nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
-  top: 5px;
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
+    top: 5px;
 }
 
 #nav-icon span:nth-child(4) {
-  top: 10px;
+    top: 10px;
 }
 
 #nav-icon.open span:nth-child(1) {
-  top: 10px;
-  width: 0%;
-  left: 50%;
+    top: 10px;
+    width: 0%;
+    left: 50%;
 }
 
 #nav-icon.open span:nth-child(2) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 #nav-icon.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 #nav-icon.open span:nth-child(4) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
+    top: 18px;
+    width: 0%;
+    left: 50%;
 }
 
-nav{
+nav {
     width: 100%;
     height: 50px;
     padding: 15px 0px 0 10px;
@@ -134,46 +135,55 @@ nav{
     left: 0;
 }
 
-#logo{
+#logo {
     width: 80%;
 }
 
-#logo img{
+#logo img {
     width: 100%;
     max-height: 30px;
     max-width: 300px;
 }
 
-main{
+main {
     width: 100%;
 }
 
 @media screen and (max-height: 450px) {
-  .overlay {overflow-y: auto;}
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
+    .overlay {
+        overflow-y: auto;
+    }
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
 }
+
 
 /* Page Specific CSS */
 
+
 /* Map Page */
-#mapholder{
+
+#mapholder {
     width: 100%;
     height: 100%;
 }
-#mapholder img{
+
+#mapholder img {
     width: 100%;
     height: 100%;
 }
+
 
 /* Home page css */
 
 #homepage-logo-row {
-    padding-top: 50%;
+    padding-top: 25%;
 }
 
 #homepage-logo {
@@ -181,13 +191,14 @@ main{
 }
 
 #homepage-button-row {
-    padding-top: 15%;
+    padding-top: 17%;
 }
 
 #homepage-button {
-    width: 100%;
+    margin-left: 25%;
+    width: 50%;
     font-family: 'Open Sans', sans-serif;
-    font-size: 300%;
+    font-size: 200%;
     color: black;
     background-color: darkgray;
 }
