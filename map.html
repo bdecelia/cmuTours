@@ -40,8 +40,14 @@
 </div>
 
 <!-- Page Content -->
+<style type="text/css">
+	#map{
+		width: 100%;
+		height: 100vh;
+	}
+</style>
 <main>
-	<div id="mapholder"></div>
+	<div id="map"></div>
 </main>
 
 </body>
@@ -53,7 +59,154 @@
 <!-- Website Javascript -->
 <script type="text/javascript" src="assets/js/functionality.js"></script>
 <!-- Page Specific Javascript -->
-<script type="text/javascript">
-	getLocation();
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(myMap, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function myMap(position) {
+
+ var styledMapType = new google.maps.StyledMapType([
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#edb13c"
+      }
+    ]
+  },
+  {
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.man_made",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#b01c33"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.man_made",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#000003"
+      },
+      {
+        "weight": 8
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#008e45"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#447530"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.school",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#142e5c"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.sports_complex",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#142e5c"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#fffffe"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "color": "#fffffe"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#009dd4"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#92998d"
+      }
+    ]
+  }
+],
+            {name: 'Styled Map'});
+
+var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: position.coords.latitude, lng: position.coords.longitude},
+          zoom: 16,
+          mapTypeControlOptions: {
+            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                    'styled_map']
+          }
+        });
+
+
+map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+}
+
 </script>
+<!-- Google Maps API -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcW3Bs3eY07QCJj3_yR7p0ISiyPxg3mz0&callback=getLocation"
+  type="text/javascript"></script>
 </html>
