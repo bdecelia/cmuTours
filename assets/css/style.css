@@ -147,6 +147,7 @@ nav {
 
 main {
     width: 100%;
+    margin-top: 80px;
 }
 
 @media screen and (max-height: 450px) {
@@ -182,25 +183,29 @@ main {
 
 /* Home page css */
 
-#homepage-logo-row {
-    padding-top: 25%;
+#logo-div{
+    width: 80%;
+    margin: 10%;
+    margin-top: 15%;
 }
 
-#homepage-logo {
-    margin-left: 10px;
+#logo-div img{
     width: 100%;
 }
 
-#homepage-button-row {
-    padding-top: 17%;
+#begin-div{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
 }
 
-#homepage-button {
-    width: 100%;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 200%;
+#begin-div h1{
+    font-size: 1em;
+}
+
+#begin-div a{
+    font-size: 1.5em;
     color: black;
-    background-color: darkgray;
 }
 
 @media screen and (max-height: 450px) {
