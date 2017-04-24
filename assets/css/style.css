@@ -232,6 +232,23 @@ main {
     border-bottom: #ddd 1px solid;
 }
 
+.search{
+    width: calc(100% + 30px);
+    background-color: #eee;
+}
+
+.search input{
+    margin: 10px 5%;
+    width: 90%;
+    border-radius: 15px;
+    border: none;
+    padding-left: 10px;
+    text-align: center;
+}
+
+input:focus{
+    outline: none;
+}
 
 @media screen and (max-height: 450px) {
     .overlay {
