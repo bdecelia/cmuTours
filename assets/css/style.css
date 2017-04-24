@@ -147,7 +147,7 @@ nav {
 
 main {
     width: 100%;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 @media screen and (max-height: 450px) {
@@ -180,7 +180,6 @@ main {
     height: 100%;
 }
 
-
 /* Home page css */
 
 #logo-div{
@@ -207,6 +206,32 @@ main {
     font-size: 1.5em;
     color: black;
 }
+
+/* Destinations */
+
+.location-image{
+    max-width: calc(100% + 10px);
+    height: 90px;
+    border-radius: 50%;
+}
+
+.small-padding{
+    padding: 10px !important;
+}
+
+.next{
+    height: 100%;
+    padding-top: 45px;
+}
+.next a{
+    color: gray;
+    font-size: 1em;
+}
+
+.location{
+    border-bottom: #ddd 1px solid;
+}
+
 
 @media screen and (max-height: 450px) {
     .overlay {
