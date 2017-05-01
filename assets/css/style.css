@@ -272,6 +272,41 @@ input:focus{
     width: 100%;
 }
 
+/* Destination */
+
+.title-image{
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    padding: 0;
+    background: url('../img/uc.png') no-repeat;
+}
+
+.title-bar{
+    width: 100%;
+    height: 40px;
+    margin-top: -40px;
+    color: white;
+    padding: 4px;
+    padding-left: 20px;
+    vertical-align: middle;
+    font-weight: 100;
+    font-size: 1.5em;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.small-image{
+    width: 100%;
+    height: 80px;
+    background-color: red;
+}
+
+.medium-image{
+    width: 100%;
+    height: 180px;
+    background-color: red;
+}
+
 @media screen and (max-height: 450px) {
     .overlay {
         overflow-y: auto;
