@@ -1,169 +1,171 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- Title and Meta Data -->
     <title>CMU Tours</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Navbar -->
+    <nav>
+        <div id="logo">
+            <img src="assets/img/CMU_Logo_Horiz_Red.png">
+        </div>
+        <div id="nav-icon" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-<!-- Navbar -->
-<nav>
-    <div id="logo">
-        <img src="assets/img/CMU_Logo_Horiz_Red.png">
-    </div>
-    <div id="nav-icon" onclick="toggleNav()">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-</nav>
-
-
-<!-- Nav overlay -->
-<div id="myNav" class="overlay">
-  <div class="overlay-content">
-    <a href="destinations.html">Destinations</a>
-    <hr>
-    <a href="about.html">About</a>
-    <hr>
-    <a href="map.html">Where am I?</a>
-    <hr>
-    <a href="contact.html">Contact</a>
-  </div>
-</div>
-
-<!-- Page Content -->
-<main>
-    <div class="container-fluid">
-        <div class="row search">
-            <input type="text" name="" placeholder="Search" id="entry">
-        </div>
-        <div class="row location" id="TheCut">
-            <div class="col-xs-3 small-padding">
-                <img class="location-image" src="assets/img/thecut.jpg">
-            </div>
-            <div class="col-xs-8">
-                <h5>The Cut</h5>
-                <p>Carnegie Mellon's new student Orientation is an extensive full-week program
-that will focus on academics, tradition and community.</p>
-            </div>
-            <div class="col-xs-1 next">
-                <a>></a>
-            </div>
-        </div>
-        <div class="row location" id="The Fence">
-            <div class="col-xs-3 small-padding">
-                <img class="location-image" src="assets/img/thefence.jpg">
-            </div>
-            <div class="col-xs-8">
-                <h5>The Fence</h5>
-                <p>The unofficial university billboard, the Fence is painted between midnight and sunrise by students who then stand guard as long as they want their message to stay.</p>
-            </div>
-            <div class="col-xs-1 next">
-                <a>></a>
-            </div>
-        </div>
-        <div class="row location" id="TheCohonUniversityCenter">
-            <div class="col-xs-3 small-padding">
-                <img class="location-image" src="assets/img/uc.png">
-            </div>
-            <div class="col-xs-8">
-                <h5>The Cohon University Center</h5>
-                <p>Carnegie Mellon's new student Orientation is an extensive full-week program
-that will focus on academics, tradition and community.</p>
-            </div>
-            <div class="col-xs-1 next">
-                <a>></a>
-            </div>
-        </div>
-        <div class="row location" id="HuntLibrary">
-            <div class="col-xs-3 small-padding">
-                <img class="location-image" src="assets/img/hunt.jpg">
-            </div>
-            <div class="col-xs-8">
-                <h5>Hunt Library</h5>
-                <p>Carnegie Mellon's new student Orientation is an extensive full-week program
-that will focus on academics, tradition and community.</p>
-            </div>
-            <div class="col-xs-1 next">
-                <a>></a>
-            </div>
-        </div>
-        <div class="row location">
-            <div class="col-xs-3 small-padding">
-                <img class="location-image" src="assets/img/purnell.jpg">
-            </div>
-            <div class="col-xs-8">
-                <h5>School of Drama</h5>
-                <p>Key players will take ownership of their alignments by dynamically relaying end-to-end propositions.</p>
-            </div>
-            <div class="col-xs-1 next">
-                <a>></a>
-            </div>
-        </div>
-        <div class="row location">
-            <div class="col-xs-3 small-padding">
-                <img class="location-image" src="assets/img/bridge.jpg">
-            </div>
-            <div class="col-xs-8">
-                <h5>The Randy Pausch Bridge</h5>
-                <p>Key players will take ownership of their alignments by dynamically relaying end-to-end propositions.</p>
-            </div>
-            <div class="col-xs-1 next">
-                <a>></a>
-            </div>
+    <!-- Nav overlay -->
+    <div id="myNav" class="overlay">
+        <div class="overlay-content">
+            <a href="destinations.html">Destinations</a>
+            <hr>
+            <a href="about.html">About</a>
+            <hr>
+            <a href="map.html">Where am I?</a>
+            <hr>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
-</main>
+
+    <!-- Page Content -->
+    <main>
+        <div class="container-fluid">
+            <div class="row search">
+                <input type="text" name="" placeholder="Search" id="entry">
+            </div>
+            <div class="row location" id="TheCut">
+                <div class="col-xs-3 small-padding">
+                    <img class="location-image" src="assets/img/thecut.jpg">
+                </div>
+                <div class="col-xs-8">
+                    <h5>The Cut</h5>
+                    <p>Carnegie Mellon's new student Orientation is an extensive full-week program that will focus on academics,
+                        tradition and community.</p>
+                </div>
+                <div class="col-xs-1 next">
+                    <a>></a>
+                </div>
+            </div>
+            <div class="row location" id="The Fence">
+                <div class="col-xs-3 small-padding">
+                    <img class="location-image" src="assets/img/thefence.jpg">
+                </div>
+                <div class="col-xs-8">
+                    <h5>The Fence</h5>
+                    <p>The unofficial university billboard, the Fence is painted between midnight and sunrise by students who
+                        then stand guard as long as they want their message to stay.</p>
+                </div>
+                <div class="col-xs-1 next">
+                    <a>></a>
+                </div>
+            </div>
+            <div class="row location" id="TheCohonUniversityCenter">
+                <div class="col-xs-3 small-padding">
+                    <img class="location-image" src="assets/img/uc.png">
+                </div>
+                <div class="col-xs-8">
+                    <h5>The Cohon University Center</h5>
+                    <p>Carnegie Mellon's new student Orientation is an extensive full-week program that will focus on academics,
+                        tradition and community.</p>
+                </div>
+                <div class="col-xs-1 next">
+                    <a>></a>
+                </div>
+            </div>
+            <div class="row location" id="HuntLibrary">
+                <div class="col-xs-3 small-padding">
+                    <img class="location-image" src="assets/img/hunt.jpg">
+                </div>
+                <div class="col-xs-8">
+                    <h5>Hunt Library</h5>
+                    <p>Carnegie Mellon's new student Orientation is an extensive full-week program that will focus on academics,
+                        tradition and community.</p>
+                </div>
+                <div class="col-xs-1 next">
+                    <a>></a>
+                </div>
+            </div>
+            <div class="row location">
+                <div class="col-xs-3 small-padding">
+                    <img class="location-image" src="assets/img/purnell.jpg">
+                </div>
+                <div class="col-xs-8">
+                    <h5>School of Drama</h5>
+                    <p>Key players will take ownership of their alignments by dynamically relaying end-to-end propositions.</p>
+                </div>
+                <div class="col-xs-1 next">
+                    <a>></a>
+                </div>
+            </div>
+            <div class="row location">
+                <div class="col-xs-3 small-padding"> <img class="location-image" src="assets/img/bridge.jpg"> </div>
+                <div class="col-xs-8">
+                    <h5>The Randy Pausch Bridge</h5>
+                    <p>Key players will take ownership of their alignments by dynamically relaying end-to-end propositions.</p>
+                </div>
+                <div class="col-xs-1 next">
+                    <a>></a>
+                </div>
+            </div>
+        </div>
+    </main>
 
 </body>
 
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 <!-- Website Javascript -->
 <script type="text/javascript" src="assets/js/functionality.js"></script>
 <!-- Page Specific Javascript -->
 <script type="text/javascript">
-jQuery.expr[':'].regex = function(elem, index, match) {
-    var matchParams = match[3].split(','),
-        validLabels = /^(data|css):/,
-        attr = {
-            method: matchParams[0].match(validLabels) ? 
-                        matchParams[0].split(':')[0] : 'attr',
-            property: matchParams.shift().replace(validLabels,'')
-        },
-        regexFlags = 'ig',
-        regex = new RegExp(matchParams.join('').replace(/^s+|s+$/g,''), regexFlags);
-    return regex.test(jQuery(elem)[attr.method](attr.property));
-}
+    jQuery.expr[':'].regex = function (elem, index, match) {
+        var matchParams = match[3].split(','),
+            validLabels = /^(data|css):/,
+            attr = {
+                method: matchParams[0].match(validLabels) ? matchParams[0].split(':')[0] : 'attr',
+                property: matchParams.shift().replace(validLabels, '')
+            },
+            regexFlags = 'ig',
+            regex = new RegExp(matchParams.join('').replace(/^s+|s+$/g, ''), regexFlags);
+        return regex.test(jQuery(elem)[attr.method](attr.property));
+    }
 
-$(function () {
-    
-    var input = $("#entry");
-    input.keydown(function () {
+    $(function () {
 
-        setTimeout(function () {
-            var inputs = input.val().toLowerCase();
-            var query = inputs.replace(" ","_");
-            console.log(query)
-            if (query == 'NaN') {
-                $('.location').show();
-            } else {    
-                $('.location').hide()
-                $('.location:regex(id,'+query+')').show();
-            }
-        }, 10);
-        
+        var input = $("#entry");
+        input.keydown(function () {
+
+            setTimeout(function () {
+                var inputs = input.val().toLowerCase();
+                var query = inputs.replace(" ", "_");
+                console.log(query)
+                if (query == 'NaN') {
+                    $('.location').show();
+                } else {
+                    $('.location').hide()
+                    $('.location:regex(id,' + query + ')').show();
+                }
+            }, 10);
+
+        });
     });
-});
+
 </script>
+
 </html>
