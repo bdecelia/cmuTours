@@ -26,7 +26,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        window.location = "index.html";
     }
 }
 
@@ -41,13 +41,13 @@ function showPosition(position) {
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
+            window.location = "index.html";
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
+            window.location = "index.html";
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
+            window.location = "index.html";
             break;
         case error.UNKNOWN_ERROR:
             x.innerHTML = "An unknown error occurred."
