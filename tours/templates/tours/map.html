@@ -1,0 +1,154 @@
+{% extends "tours/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div id="mapAlert">
+<div id="mapText">You are at the <a id="placeName" href=""></a>.</div>
+<a href="" id="placeLink">
+<div id="moreInfo">
+  More Information
+</div>
+</a>
+</div>
+<div id="map"></div>
+<img src="{% static 'img/spinner.gif' %}" id="loading">
+{% endblock %}
+
+{% block javascript %}
+<script>
+var places = [
+  {% for destination in locations %}
+  {
+    name: "{{destination.name}}",
+    lat: "{{destination.latitude}}",
+    long: "{{destination.longitude}}",
+    id: "{{destination.pk}}",
+  },
+  {% endfor %}
+];
+
+var epsilon = 0.0004;
+
+function isNearPlace(place, currentPosition){
+  var dLat = Math.abs(currentPosition.coords.latitude - place.lat);
+  var dLong = Math.abs(currentPosition.coords.longitude - place.long);
+  var distance = Math.sqrt(Math.pow(dLat, 2) + Math.pow(dLong, 2));
+  if (distance <= epsilon){
+    showAlert(place.name, place.id);
+    return true;
+  }
+  return false;
+}
+
+function checkPlaces(position){
+  for (var i = 0; i < places.length; i++){
+    if (isNearPlace(places[i], position)){
+      return
+    }
+  }
+  hideAlert();
+}
+
+
+function showAlert(name, id) {
+  document.getElementById('placeName').innerHTML = name;
+  document.getElementById('placeName').href = "{% url 'destination' %}?id=" + id;
+  document.getElementById('placeLink').href = "{% url 'destination' %}?id=" + id;
+  document.getElementById('moreInfo').style.height = 2+document.getElementById('mapAlert').clientHeight+'px';
+  $( "#mapAlert" ).animate({
+    left: "10%",
+  }, 1000 );
+};
+
+function hideAlert() {
+  $( "#mapAlert" ).animate({
+    left: "110%",
+  }, 1000 );
+};
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(myMap, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function myMap(position) {
+  var myLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: position.coords.latitude, lng: position.coords.longitude},
+            zoom: 17,
+            mapTypeControlOptions: {
+              mapTypeIds: ['satellite']
+            }
+          });
+
+  var dog = {
+      url: "{% static 'img/dog.png' %}", // url
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(25, 25) // anchor
+  };
+
+  var green = {
+      url: "{% static 'img/green_icon.png' %}", // url
+      scaledSize: new google.maps.Size(30, 50), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(25, 25) // anchor
+  };
+
+  var red = {
+      url: "{% static 'img/red_icon.png' %}", // url
+      scaledSize: new google.maps.Size(30, 50), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(25, 25) // anchor
+  };
+
+  {% for location in locations %}
+    var location_marker = new google.maps.Marker({
+        position: new google.maps.LatLng(parseFloat({{location.latitude}}),parseFloat({{location.longitude}})),
+        map: map,
+        title: '{{location.name}}',
+        {% if location.pk in request.session.visited %}
+        icon: green
+        {% else %}
+        icon: red
+        {% endif %}
+    });
+  {% endfor %}
+
+  var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Current Location',
+            icon: dog
+          });
+
+  moveMarker(map, marker)
+}
+
+function moveMarker( map, marker ) {
+    function updatePosition(position){
+        checkPlaces(position);
+        marker.setPosition( new google.maps.LatLng( position.coords.latitude, position.coords.longitude ) );
+        // map.panTo( new google.maps.LatLng( 0, 0 ) );
+    }
+    //delayed so you can see it move
+    setInterval( function(){ 
+        if (navigator.geolocation) {
+            console.log("Updating position");
+            navigator.geolocation.getCurrentPosition(updatePosition, showError);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+        
+    }, 3500 );
+
+};
+
+</script>
+<!-- Google Maps API -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcW3Bs3eY07QCJj3_yR7p0ISiyPxg3mz0&callback=getLocation"
+  type="text/javascript"></script>
+{% endblock %}

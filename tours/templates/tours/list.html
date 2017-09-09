@@ -1,0 +1,62 @@
+{% extends "tours/base.html" %}
+
+{% load staticfiles %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row search">
+    <input type="text" name="" placeholder="Search" id="entry">
+  </div>
+  {% for location in locations %}
+  <a href="{% url 'destination' %}?id={{location.pk}}" style="color: black">
+  <div class="row location" id="{{location.name|lower}}">
+    <div class="col-xs-3 small-padding">
+      <img class="location-image" src="{% url 'photo' location.id %}">
+    </div>
+    <div class="col-xs-8">
+      <h5>{{ location.name }}</h5>
+      <p>{{ location.description|truncatechars:95 }}</p>
+    </div>
+    <div class="col-xs-1 next">
+      <a href="{% url 'destination' %}?id={{location.pk}}">></a>
+    </div>
+  </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+jQuery.expr[':'].regex = function(elem, index, match) {
+    var matchParams = match[3].split(','),
+        validLabels = /^(data|css):/,
+        attr = {
+            method: matchParams[0].match(validLabels) ? 
+                        matchParams[0].split(':')[0] : 'attr',
+            property: matchParams.shift().replace(validLabels,'')
+        },
+        regexFlags = 'ig',
+        regex = new RegExp(matchParams.join('').replace(/^s+|s+$/g,''), regexFlags);
+    return regex.test(jQuery(elem)[attr.method](attr.property));
+}
+
+$(function () {
+    
+    var input = $("#entry");
+    input.keydown(function () {
+
+        setTimeout(function () {
+            var inputs = input.val().toLowerCase();
+            var query = inputs.replace(" ","_");
+            if (query == 'NaN') {
+                $('.location').show();
+            } else {    
+                $('.location').hide()
+                $('.location:regex(id,'+query+')').show();
+            }
+        }, 10);
+        
+    });
+});
+</script>
+{% endblock %}

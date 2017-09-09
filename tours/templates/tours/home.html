@@ -1,0 +1,20 @@
+{% extends "tours/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div id="logo-div">
+    <img src="{% static 'img/full-color-seal-min.png' %}">
+</div>
+<div id="begin-div">
+    <h1>Welcome to Carnegie Mellon</h1>
+    <a href="{% url 'map' %}">Start Campus Tour</a>
+</div>
+<div id="login-button">
+    {% if user.is_authenticated %}
+    <a href="{% url 'admin_panel' %}" class="btn btn-default btn-sm">
+    {% else %}
+	<a href="{% url 'login' %}" class="btn btn-default btn-sm">
+	{% endif %}	
+		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	</a>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "tours/base.html" %}
+
+{% block content %}  
+<div class="container">
+<br>
+{% if edit %}
+<form method="post" action="{% url 'edit_destination' %}?id={{location.pk}}" enctype="multipart/form-data">
+{% else %}
+<form method="post" action="{% url 'new_destination' %}" enctype="multipart/form-data">
+{% endif %}	
+    {% load bootstrap %}
+	{{ form|bootstrap }}
+    {% csrf_token %}
+    <p class="btn btn-primary" onclick='setLocation()'>Set to Current Location</p><br><br>
+    {% if edit %}
+    <input type="submit" class="btn btn-success" value="Update Location" />
+    {% else %}
+	<input type="submit" class="btn btn-success" value="Add Location" />
+	{% endif %}
+    <p id="demo"></p>
+</form>
+<br>
+{% if edit %}
+<a href="{% url 'delete_destination' %}?id={{location.pk}}" class="btn btn-danger">Delete Location</a>
+{% endif %}
+</div>      
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript">
+var lat = document.getElementById("id_latitude");
+var long = document.getElementById("id_longitude");
+
+function setLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    lat.value = position.coords.latitude;
+    long.value = position.coords.longitude;
+}
+
+</script>
+
+{% endblock%}

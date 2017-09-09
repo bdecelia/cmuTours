@@ -1,0 +1,25 @@
+{% extends "tours/base.html" %}
+
+{% block content %}  
+<div class="container">
+<br>
+{% if edit %}
+<form method="post" action="{% url 'edit_testimonial' %}?id={{testimonial.pk}}" enctype="multipart/form-data">
+{% else %}
+<form method="post" action="{% url 'new_testimonial' %}" enctype="multipart/form-data">
+{% endif %}
+	{% load bootstrap %}
+	{{ form|bootstrap }}
+    {% csrf_token %}
+    {% if edit %}
+    <input type="submit" class="btn btn-success" value="Update Testimonial" />
+    {% else %}
+	<input type="submit" class="btn btn-success" value="Add Testimonial" />
+	{% endif %}
+</form>
+<br>
+{% if edit %}
+<a href="{% url 'delete_testimonial' %}?id={{testimonial.pk}}" class="btn btn-danger">Delete Testimonial</a>
+{% endif %}
+</div>      
+{% endblock %}

@@ -1,0 +1,401 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 50px;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+    color: white;
+}
+
+.overlay-content {
+    position: relative;
+    top: 10%;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.overlay a {
+    padding: 2px;
+    text-decoration: none;
+    font-size: 26px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    font-weight: 100;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+#nav-icon {
+    width: 20px;
+    height: 15px;
+    position: fixed;
+    top: 20px;
+    right: 17px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#nav-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #313945;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#nav-icon span:nth-child(1) {
+    top: 0px;
+}
+
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
+    top: 5px;
+}
+
+#nav-icon span:nth-child(4) {
+    top: 10px;
+}
+
+#nav-icon.open span:nth-child(1) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+}
+
+#nav-icon.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#nav-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#nav-icon.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    padding: 15px 0px 0 10px;
+    background-color: white;
+    border-bottom: 1px solid black;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#logo {
+    width: 80%;
+}
+
+#logo img {
+    width: 100%;
+    max-height: 30px;
+    max-width: 300px;
+}
+
+main {
+    width: 100%;
+    margin-top: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {
+        overflow-y: auto;
+    }
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+/* Page Specific CSS */
+
+/* Home page */
+
+#login-button{
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+}
+
+/* Map Page */
+
+#mapholder {
+    width: 100%;
+    height: 100%;
+}
+
+#mapholder img {
+    width: 100%;
+    height: 100%;
+}
+
+#map{
+	width: 100%;
+	height: calc(100vh - 50px);
+}
+
+#mapAlert{
+    width: 80%;
+    position: fixed;
+    left: 110%;
+    top: 75px;
+    min-height: 50px;
+    padding: 15px;
+    z-index: 5;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border: 1px solid #3c763d;
+    border-radius: 15px;
+    vertical-align: top;
+}
+
+#mapText{
+    max-width: calc(100% - 100px);
+}
+
+#moreInfo{
+    position: fixed;
+    top: 75px;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #C3E3B5;
+    float: right;
+    color: #3c763d;
+    vertical-align: top;
+    padding-top: 5px;
+    margin-left: calc(80% - 115px);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 1px #3c763d solid;
+
+}
+
+#moreInfo:hover{
+    background-color: #589258;
+}
+
+#loading{
+    position: absolute;
+    top: calc(50vh - 120px);
+    left: calc(50% - 150px);
+    width: 300px;
+    height: 240px;
+    z-index: -9999;
+  }
+
+/* Home page css */
+
+#logo-div{
+    width: 80%;
+    margin: 10%;
+    margin-top: 15%;
+}
+
+#logo-div img{
+    width: 100%;
+}
+
+#begin-div{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#begin-div h1{
+    font-size: 1em;
+}
+
+#begin-div a{
+    font-size: 1.5em;
+    color: black;
+}
+
+/* Destinations */
+
+.location-image{
+    max-width: calc(100% + 10px);
+    height: 90px;
+    border-radius: 50%;
+}
+
+.small-padding{
+    padding: 10px !important;
+}
+
+.next{
+    height: 100%;
+    padding-top: 45px;
+}
+.next a{
+    color: gray;
+    font-size: 1em;
+}
+
+.location{
+    border-bottom: #ddd 1px solid;
+}
+
+.search{
+    width: calc(100% + 30px);
+    background-color: #eee;
+}
+
+.search input{
+    margin: 10px 5%;
+    width: 90%;
+    border-radius: 15px;
+    border: none;
+    padding-left: 10px;
+    text-align: center;
+}
+
+input:focus{
+    outline: none;
+}
+
+/* Contact */
+
+.show{
+    display: initial;
+}
+
+.hide{
+    display: none;
+}
+
+.admissions-image{
+    width: 100%;
+}
+
+/* Destination */
+
+.title-image{
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    padding: 0; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.title-bar{
+    width: 100%;
+    height: 40px;
+    margin-top: -40px;
+    color: white;
+    padding: 4px;
+    padding-left: 20px;
+    vertical-align: middle;
+    font-weight: 100;
+    font-size: 1.5em;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.small-image{
+    width: 100%;
+    height: 80px;
+}
+
+.medium-image{
+    width: 100%;
+    height: 180px;
+}
+
+.bg_image{
+    height: 28vh;
+    margin:0;
+    margin: 0 5px;
+    padding:0px;
+    width: calc(33% - 10px) !important;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.modal-image{
+    padding: 0 !important;
+}
+
+.modal-image img{
+    width: 100%;
+    margin-top: -21px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    max-height: 275px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {
+        overflow-y: auto;
+    }
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}

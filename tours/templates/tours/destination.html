@@ -1,0 +1,70 @@
+{% extends "tours/base.html" %}
+
+{% block content %}
+<div style="background: url('{% url 'photo' location.id %}') no-repeat; background-size: cover; background-position: 50%;" class="title-image" ></div>
+<div class="title-bar">{{location.name}}</div>
+
+<br>
+
+<div class="container">
+	<div class="row">
+		{% for testimonial in testimonials %}
+		<div class="col-xs-4 bg_image" style="background: url('{% url 'photo_testimonial' testimonial.id %}') no-repeat bottom; background-size: cover;" id="t{{testimonial.pk}}">
+		</div>
+		{% endfor %}
+	</div>
+  <br>
+  <div class="container">
+  <div class="jumbotron">
+    {{ location.description }}
+    </div>
+  </div>
+</div>
+
+{% for testimonial in testimonials %}
+<!-- Modal -->
+  <div class="modal fade" id="{{testimonial.pk}}_modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body modal-image" >
+          <button type="button" class="close" data-dismiss="modal">&times;&nbsp;</button>
+          <img src="{% url 'photo_testimonial' testimonial.id %}">
+        </div>
+        <div class="modal-header">
+          <h4 class="modal-title">{{testimonial.name}}</h4>
+        </div>
+        <div class="modal-body">
+          <p>{{testimonial.description}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
+
+{% block javascript %}
+<!-- Modal JS -->
+<script type="text/javascript">
+function addEventListeners(){
+	{% for testimonial in testimonials %}
+	var testimonial_{{testimonial.pk}} = document.getElementById("t{{testimonial.pk}}");
+	testimonial_{{testimonial.pk}}.addEventListener("mouseover", openModal);
+	testimonial_{{testimonial.pk}}.addEventListener("touchmove", openModal);
+	testimonial_{{testimonial.pk}}.addEventListener("touchstart", openModal);
+	testimonial_{{testimonial.pk}}.addEventListener("touchenter", openModal);
+	testimonial_{{testimonial.pk}}.modalName = "{{testimonial.pk}}_modal";
+	{% endfor %}
+}
+
+function openModal(a){
+	$("#"+a.target.modalName).modal();
+}
+
+addEventListeners();
+</script>
+{% endblock %}
